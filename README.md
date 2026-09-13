@@ -1,4 +1,4 @@
-# 🛡️ SETU-AI / Fraud Guard — MPLADS AI Surveillance & Audit System
+# 🛡️  Fraud Guard — MPLADS AI Surveillance & Audit System
 
 **Smart India Hackathon (SIH 2026)**  
 *Scheme Expenditure Tracking & Utilization AI (SETU-AI) for India's MPLADS (Members of Parliament Local Area Development Scheme).*
