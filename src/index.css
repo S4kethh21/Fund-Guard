@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+html.light,
+[data-theme="light"] {
+  --bg-primary: #F1F4F8;
+  --bg-secondary: #EEF2F7;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-raised: #EEF2F7;
+  --surface-hover: #F6F8FB;
+  
+  --border: #D7DEE8;
+  --border-subtle: #E5EBF3;
+  --border-strong: #C2CBD8;
+  
+  --text-primary: #172033;
+  --text-secondary: #526071;
+  --text-muted: #6B7788;
+  
+  --input-bg: #FFFFFF;
+  --input-border: #C2CBD8;
+  --input-placeholder: #7A8494;
+
+  --table-header-bg: #EEF2F7;
+  --table-header-text: #344054;
+  --table-hover: #F6F8FB;
+  
+  --chart-grid: #E2E8F0;
+  --chart-text: #526071;
+  --map-background: #F8FAFC;
+  
+  --card-bg: #FFFFFF;
+  --card-border: #D7DEE8;
+  --card-hover-border: #C2CBD8;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
+
+  --header-bg: #FFFFFF;
+  --header-border: #D7DEE8;
+
+  --accent: #1D68F2;
+  --accent-hover: #1557D6;
+  --accent-subtle: #EBF3FE;
+
+  --grid-dot-color: #CBD5E1;
+  color-scheme: light;
+}
+
+html.dark,
+.dark,
+[data-theme="dark"] {
+  --bg-primary: #080D16;
+  --bg-secondary: #0D1420;
+  --surface: #111A28;
+  --surface-elevated: #151F2E;
+  --surface-raised: #151F2E;
+  --surface-hover: #172235;
+  
+  --border: #263244;
+  --border-subtle: #1E293B;
+  --border-strong: #3B4B63;
+  
+  --text-primary: #F5F7FA;
+  --text-secondary: #A8B2C1;
+  --text-muted: #748094;
+  
+  --input-bg: #0D1420;
+  --input-border: #263244;
+  --input-placeholder: #5A6679;
+
+  --table-header-bg: #151F2E;
+  --table-header-text: #A8B2C1;
+  --table-hover: #172235;
+  
+  --chart-grid: #1E293B;
+  --chart-text: #A8B2C1;
+  --map-background: #0D1420;
+  
+  --card-bg: #111A28;
+  --card-border: #263244;
+  --card-hover-border: #3B4B63;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  --header-bg: #080D16;
+  --header-border: #263244;
+
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-subtle: rgba(37, 99, 235, 0.15);
+
+  --grid-dot-color: #1E293B;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    min-height: 100%;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    background-image: radial-gradient(var(--grid-dot-color) 0.85px, transparent 0.85px);
+    background-size: 28px 28px;
+    background-attachment: fixed;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+/* Institutional Card Surfaces */
+.cmd-card,
+.card-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.cmd-card-hover,
+.card-surface-hover {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.cmd-card-hover:hover,
+.card-surface-hover:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-1px);
+}
+
+/* Print Styles for Official Audit Reports */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    background-image: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Precision scrollbar for data tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
